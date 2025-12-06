@@ -120,7 +120,6 @@ public class ProdutoDAO implements IProdutoDAO {
             String sql = getSqlProductDeleted();
             stm = connection.prepareStatement(sql);
             adicionaParametrosDeletProduto(stm, produto);
-
             return stm.executeUpdate();
         } catch (Exception e) {
             throw e;
@@ -135,7 +134,7 @@ public class ProdutoDAO implements IProdutoDAO {
     // cadastro de produto
     private String getSqlProductInsert() {
         StringBuilder sb = new StringBuilder();
-        sb.append("INSERT INTO TB_PRODUTO (ID, DESCRICAO, PRECO) ");
+        sb.append("INSERT INTO TB_PRODUTO (id, descricao, preco) ");
         sb.append("VALUES (nextval('sq_produto_id'),?,?)");
         return sb.toString();
     }
@@ -182,7 +181,7 @@ public class ProdutoDAO implements IProdutoDAO {
     // Excluir da base de dados
     private String getSqlProductDeleted() {
         StringBuilder sb = new StringBuilder();
-        sb.append("SELECT * FROM TB_PRODUTO ");
+        sb.append("DELETE FROM TB_PRODUTO ");
         sb.append("WHERE DESCRICAO = ?");
         return sb.toString();
     }
