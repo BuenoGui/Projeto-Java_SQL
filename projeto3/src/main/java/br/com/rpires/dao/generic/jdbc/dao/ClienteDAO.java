@@ -84,7 +84,6 @@ public class ClienteDAO implements IClienteDAO {
 				// o ResultSet é igual a execução do SQL
 				// pois ele é o OBJ em Java que vai armazenar os valores das pesquisas em SQL
 				rs = stm.executeQuery();
-				
 			if (rs.next()) {
 					// istancia um cliente 
 					cliente = new Cliente();
@@ -166,6 +165,10 @@ public class ClienteDAO implements IClienteDAO {
 			return list;
 		}
 	
+
+	// SQL CODES
+
+
 	// Aqui é a criação de um cliente no PostgreSql
 	// da para ver o comando abaixo criando um valor na tabela cliente
 	// Passando Id, Código e nome
@@ -224,7 +227,6 @@ public class ClienteDAO implements IClienteDAO {
 		stm.setString(1, cliente.getCodigo());
 	}
 	
-
 	// Aqui é o comando SQL para:
 	// fazer a busca do cliente na tabela
 	// com base no código do cliente
@@ -237,7 +239,6 @@ public class ClienteDAO implements IClienteDAO {
 	}
 	
 	// adiciona o "código" no código SQL da pesquisa
-
 	private void adicionarParametrosSelect(PreparedStatement stm, String codigo) throws SQLException {
 		stm.setString(1, codigo);
 	}
@@ -268,6 +269,4 @@ public class ClienteDAO implements IClienteDAO {
 			e1.printStackTrace();
 		}
 	}
-
-
 }
